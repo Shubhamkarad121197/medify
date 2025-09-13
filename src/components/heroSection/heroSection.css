@@ -1,0 +1,108 @@
+.heroSectionContainer {
+    margin-top: 3em;
+    display: flex;
+}
+
+.heroSectionTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.homeLeftSection {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+
+}
+
+.skipTheTravel {
+    font-family: Poppins;
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 31px;
+    line-height: 68px;
+    letter-spacing: 2%;
+
+}
+
+.medicalSpan {
+    font-family: Poppins;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 56px;
+
+    line-height: 68px;
+    letter-spacing: 2%;
+
+
+}
+
+.centerSpan {
+    font-family: Poppins;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 56px;
+    color: #2AA7FF;
+
+    line-height: 68px;
+    letter-spacing: 2%;
+}
+
+.findCentersBtn {
+
+    width: 177px;
+    height: 48px;
+
+    opacity: 1;
+    border-radius: 8px;
+    padding-top: 12px;
+    padding-right: 36px;
+    padding-bottom: 12px;
+    padding-left: 36px;
+    gap: 10px;
+    background: #2AA8FF;
+    color: #fff;
+
+    font-weight: 500;
+    font-style: Medium;
+    font-size: 16px;
+    border: none;
+    line-height: 100%;
+    letter-spacing: 2%;
+
+
+
+}
+
+.serviceCard {
+    width: 1170px;
+    height: 429px;
+    top: 530px;
+    left: 135px;
+    position: absolute;
+    opacity: 1;
+    border-radius: 15px;
+    background: #FFFFFF;
+    box-shadow: 6px 6px 35px 0px #1028511C;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap:2em;
+    z-index: 10;
+}
+.cardService{
+    width: 203px;
+height: 153px;
+opacity: 1;
+background: #FAFBFE;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: column;
+gap:10px;
+
+
+
+}

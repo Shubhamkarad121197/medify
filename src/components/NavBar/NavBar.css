@@ -1,0 +1,38 @@
+.logoIcon {
+    margin: 5px;
+
+}
+
+.menuName {
+
+    font-weight: 400;
+    font-style: 'Regular';
+    cursor: pointer;
+    font-size: 14px;
+
+    line-height: 100%;
+    letter-spacing: 0%;
+
+}
+
+.myBookingBtn {
+    width: 130px;
+    height: 40px;
+
+    opacity: 1;
+  
+    gap: 10px;
+    border-radius: 8px;
+    background: #2AA8FF;
+    color: #fff;
+
+    font-weight: 600;
+    font-style: Medium;
+    font-size: 14px;
+   
+    line-height: 100%;
+    letter-spacing: 2%;
+    border: 1px solid #2AA8FF;
+    cursor: pointer;
+
+}
