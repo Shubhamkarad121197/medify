@@ -99,6 +99,7 @@ const HeroSection = ({ setLgShow }) => {
                   <img src={AmbulanceVector} alt="ambulance" height={50} width={50} />
                   <span>Ambulance</span>
               </div>
+              
             </div>
           </div>
     </div>
