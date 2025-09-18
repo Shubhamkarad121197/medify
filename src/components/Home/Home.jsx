@@ -1,4 +1,4 @@
-import { useState } from "react";
+
 import HeroSection from "../heroSection/heroSection";
 import NavBar from "../NavBar/NavBar";
 import { Dialog } from "@reach/dialog";
@@ -9,7 +9,7 @@ import IconButton from "@mui/material/IconButton"; // Optional, if you want a cl
 import SearchIcon from "@mui/icons-material/Search";
 
 const Home = () => {
-  const [lgShow, setLgShow] = useState(false);
+
 
   return (
     <>
@@ -22,58 +22,12 @@ const Home = () => {
         <div className="heroSection">
           <div className="homeContainer">
             <NavBar />
-            <HeroSection setLgShow={setLgShow} />
+            <HeroSection  />
           </div>
         </div>
       </div>
 
-      {/* Reach UI Dialog */}
-      {lgShow && (
-        <Dialog
-          aria-label="Find Medical Centers"
-          onDismiss={() => setLgShow(false)}
-          className="customDialog"
-        >
-          <div className="searchFeildContainer">
-            <TextField
-              label="State"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <TextField
-              label="city"
-              InputProps={{
-                endAdornment: (
-                  <InputAdornment position="end">
-                    <IconButton>
-                      <SearchIcon />
-                    </IconButton>
-                  </InputAdornment>
-                ),
-              }}
-            />
-            <button className="searchButton">
-              <IconButton>
-                <SearchIcon style={{ color: "#fff" }} />
-              </IconButton>
-              Search
-            </button>
-          </div>
-          <div>
-            <span>You may looking for</span>
-            <div>
-              
-            </div>
-          </div>
-        </Dialog>
-      )}
+     
     </>
   );
 };

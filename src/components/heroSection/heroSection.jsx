@@ -10,10 +10,13 @@ import LabVector from "../../assets/labs_Vector.png";
 import AmbulanceVector from "../../assets/Ambulance_vector.png";
 import HospitalVector from "../../assets/Hospital_vector.png";
 import MedicineVector from "../../assets/medicine_Vector.png";
+import SwiperCarausel from "../carauselSlide";
+import SpecialisationComponent from "../specialization/specialization";
+import MedicalSpecialist from "../medicalSpecialist/medicalSpecialist";
 
 
 
-const HeroSection = ({ setLgShow }) => {
+const HeroSection = () => {
   return (
     <div>
       <div className="heroSectionContainer">
@@ -33,7 +36,7 @@ const HeroSection = ({ setLgShow }) => {
           {/* Open Modal on Click */}
           <button
             className="findCentersBtn"
-            onClick={() => setLgShow(true)}
+          
           >
             Find Centers
           </button>
@@ -99,10 +102,20 @@ const HeroSection = ({ setLgShow }) => {
                   <img src={AmbulanceVector} alt="ambulance" height={50} width={50} />
                   <span>Ambulance</span>
               </div>
-              
+
             </div>
           </div>
     </div>
+    <div style={{marginTop:'17em',backgroundColor:'#FFF',padding:'2em',width:'98.5vw',height:'430px',boxSizing:'border-box',marginLeft:'-4.15em',display:'flex',alignItems:'center',justifyContent:'center'}}>
+        <SwiperCarausel/>
+    </div>
+    <div>
+      <SpecialisationComponent/>
+    </div>
+    <div>
+      <MedicalSpecialist/>
+    </div>
+  
     </div>
     
     
