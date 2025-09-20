@@ -15,7 +15,6 @@
     "@headlessui/react": "^2.2.8",
     "@mui/icons-material": "^7.3.2",
     "@mui/material": "^7.3.2",
-    "@reach/dialog": "^0.18.0",
     "bootstrap": "^5.3.8",
     "react": "^19.1.1",
     "react-bootstrap": "^2.10.10",
