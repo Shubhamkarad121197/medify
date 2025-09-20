@@ -2,10 +2,13 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import { getMedicalCenters } from '../../services/api';
-import { saveBooking } from '../../services/localStorage';
 
-function SearchResultsPage() {
+
+const SearchResultsPage = () => {
   const [centers, setCenters] = useState([]);
+  const [loading, setLoading] = useState(true); // Set initial loading state to true
+  const [error, setError] = useState(null);
+  
   const location = useLocation();
   const query = new URLSearchParams(location.search);
   const state = query.get('state');
@@ -13,48 +16,55 @@ function SearchResultsPage() {
 
   useEffect(() => {
     const fetchCenters = async () => {
-      const data = await getMedicalCenters(state, city);
-      setCenters(data.medicalCenters);
-    };
-    if (state && city) {
-      fetchCenters();
-    }
-  }, [state, city]);
+      if (!state || !city) {
+        setError("State and city parameters are missing.");
+        setLoading(false);
+        return;
+      }
 
-  const handleBookAppointment = (center) => {
-    const newBooking = {
-      hospitalName: center['Hospital Name'],
-      address: center.Address,
-      city: center.City,
-      date: '...', // Logic for selected date
-      time: '...', // Logic for selected time
+      setLoading(true);
+      setError(null);
+      try {
+        const data = await getMedicalCenters(state, city);
+        // The API response structure has `medicalCenters` key
+        setCenters(data.medicalCenters || []);
+      } catch (err) {
+        setError("Failed to fetch medical centers.");
+        console.error(err);
+      } finally {
+        setLoading(false);
+      }
     };
-    saveBooking(newBooking);
-    alert('Appointment booked successfully!');
-  };
+    fetchCenters();
+  }, [state, city]); // Re-run effect whenever state or city changes
+
+  if (loading) {
+    return <div className="loading-message">Loading medical centers...</div>;
+  }
+
+  if (error) {
+    return <div className="error-message">{error}</div>;
+  }
 
   return (
     <div className="search-results-page">
-      {centers.length > 0 ? (
-        <React.Fragment>
-          <h1>{centers.length} medical centers available in {city}</h1>
-          <div className="centers-list">
-            {centers.map((center, index) => (
-              <div key={index} className="center-card">
-                <h3>{center['Hospital Name']}</h3>
-                <p>Address: {center.Address}, {center.City}, {center.State}, {center['ZIP Code']}</p>
-                <p>Overall Rating: {center['Overall Rating']}</p>
-                {/* Calendar and time slot selection logic goes here */}
-                <button onClick={() => handleBookAppointment(center)}>Book FREE Center Visit</button>
-              </div>
-            ))}
-          </div>
-        </React.Fragment>
-      ) : (
-        <p>No medical centers found for {city}, {state}.</p>
-      )}
+      <h1>{centers.length} medical centers available in {city}</h1>
+      <div className="centers-list">
+        {centers.length > 0 ? (
+          centers.map((center, index) => (
+            <div key={index} className="center-card">
+              <h3>{center['Hospital Name']}</h3>
+              <p>{center.Address}, {center.City}, {center.State}, {center['ZIP Code']}</p>
+              <p>Overall Rating: {center['Overall Rating']}</p>
+              <button className="book-btn">Book FREE Center Visit</button>
+            </div>
+          ))
+        ) : (
+          <p>No medical centers found for {city}, {state}.</p>
+        )}
+      </div>
     </div>
   );
-}
+};
 
 export default SearchResultsPage;

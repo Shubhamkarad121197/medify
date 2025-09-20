@@ -1,24 +1,16 @@
 // src/components/HeroSection.js
-import "./heroSection.css";
 import React from "react";
+import "./heroSection.css"; // Ensure this CSS file exists
 
-import DoctorImage from "../../assets/Home.png"
-import DoctorVector from "../../assets/Doctor.png";
-import LabVector from "../../assets/labs_Vector.png";
-import AmbulanceVector from "../../assets/Ambulance_vector.png";
-import HospitalVector from "../../assets/Hospital_vector.png";
-import MedicineVector from "../../assets/medicine_Vector.png";
+import DoctorImage from "../../assets/Home.png";
 import SwiperCarausel from "../carauselSlide";
 import SpecialisationComponent from "../specialization/specialization";
 import MedicalSpecialist from "../medicalSpecialist/medicalSpecialist";
 import ParentCaring from "../patient_caring/patient_caring";
 import LatestNews from "../latestNews/latestNews";
-
 import ServiceCard from "../serviceCard/serviceCard";
 
 const HeroSection = () => {
-   
-
     return (
         <div>
             <div className="heroSectionContainer">
@@ -44,22 +36,27 @@ const HeroSection = () => {
                     <img src={DoctorImage} alt="doctor" />
                 </div>
             </div>
-            <div >
-                <ServiceCard/>
-            </div>
-            <div style={{ marginTop: '17em', backgroundColor: '#FFF', padding: '2em', width: '98.5vw', height: '430px', boxSizing: 'border-box', marginLeft: '-4.15em', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+
+            {/* ServiceCard is now its own component */}
+            <ServiceCard />
+
+            <div className="carouselSection">
                 <SwiperCarausel />
             </div>
-            <div>
+
+            <div className="specializationSection">
                 <SpecialisationComponent />
             </div>
-            <div>
+
+            <div className="medicalSpecialistSection">
                 <MedicalSpecialist />
             </div>
-            <div>
+
+            <div className="patientCaringSection">
                 <ParentCaring />
             </div>
-            <div>
+
+            <div className="latestNewsSection">
                 <LatestNews />
             </div>
         </div>
