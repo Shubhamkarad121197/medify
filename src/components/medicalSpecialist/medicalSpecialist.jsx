@@ -31,7 +31,7 @@ const doctors = [
 
 const MedicalSpecialist = () => {
   return (
-    <section className="py-10 bg-white">
+    <section className=" bg-white">
       <div className="text-center mb-8">
         <h2 className="text-2xl font-bold" style={{textAlign:'center',marginBottom:'20px'}}>Our Medical Specialist</h2>
       </div>

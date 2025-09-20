@@ -78,3 +78,104 @@ border:none;
 
 
 }
+.bg-white{
+  background-color: #fff;
+}
+
+.parent-caring-container{
+  margin-top: 20px;
+  background: linear-gradient(81deg, #E7F0FF 9.01%, rgba(232, 241, 255, 0.47) 89.11%);
+
+
+}
+
+/* src/components/Footer.css or in your main App.css file */
+
+.footer-container {
+  background-color: #03284f; /* Dark blue color */
+  color: #fff;
+  padding: 50px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+}
+
+/* Logo and Copyright Section */
+.footer-logo-section {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 250px;
+  padding-right: 20px;
+}
+
+.footer-logo-section .logo {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.footer-logo-section .copyright-text {
+  font-size: 14px;
+  color: #b0c4de; /* Lighter shade of white for contrast */
+}
+
+/* Links Section */
+.footer-links-section {
+  display: flex;
+  flex: 2;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.footer-column {
+  margin: 10px 20px;
+  min-width: 150px; /* Ensures columns don't get too narrow */
+}
+
+.footer-column h4 {
+  font-size: 18px;
+  margin-bottom: 20px;
+  font-weight: bold;
+}
+
+.footer-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.footer-column ul li {
+  margin-bottom: 10px;
+}
+
+.footer-column a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: color 0.3s ease;
+}
+
+.footer-column a:hover {
+  color: #d1e2f6; /* A slight change on hover for a subtle effect */
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    align-items: center; /* Center items for smaller screens */
+    text-align: center;
+  }
+
+  .footer-logo-section,
+  .footer-links-section {
+    margin-bottom: 30px;
+  }
+}
