@@ -2,7 +2,7 @@
 import "./heroSection.css";
 import React from "react";
 
-import DoctorImage from "../../assets/home.png";
+import DoctorImage from "../../assets/Home.png"
 import DoctorVector from "../../assets/Doctor.png";
 import LabVector from "../../assets/labs_Vector.png";
 import AmbulanceVector from "../../assets/Ambulance_vector.png";
