@@ -2,8 +2,7 @@
 import HeroSection from "../heroSection/heroSection";
 import NavBar from "../NavBar/NavBar";
 // Find and remove this line from src/components/Home/Home.jsx
-import "@reach/dialog";
-import "@reach/dialog/styles.css";
+
 import TextField from "@mui/material/TextField";
 import InputAdornment from "@mui/material/InputAdornment";
 import IconButton from "@mui/material/IconButton"; // Optional, if you want a clickable icon
