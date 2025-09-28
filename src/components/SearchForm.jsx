@@ -29,23 +29,22 @@ export default function SearchForm() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div id="state">
-        <select onChange={(e) => setSelectedState(e.target.value)}>
-          <option value="">Select State</option>
-          {states.map((s, i) => (
-            <option key={i} value={s}>{s}</option>
-          ))}
-        </select>
-      </div>
+     <div id="state">
+  <ul>
+    {states.map((s, i) => (
+      <li key={i} onClick={() => setSelectedState(s)}>{s}</li>
+    ))}
+  </ul>
+</div>
 
-      <div id="city">
-        <select onChange={(e) => setSelectedCity(e.target.value)}>
-          <option value="">Select City</option>
-          {cities.map((c, i) => (
-            <option key={i} value={c}>{c}</option>
-          ))}
-        </select>
-      </div>
+<div id="city">
+  <ul>
+    {cities.map((c, i) => (
+      <li key={i} onClick={() => setSelectedCity(c)}>{c}</li>
+    ))}
+  </ul>
+</div>
+
 
       <button id="searchBtn" type="submit">Search</button>
     </form>
