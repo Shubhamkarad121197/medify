@@ -9,27 +9,28 @@ export default function HospitalCard({ hospital }) {
   const saveBooking = () => {
     const booking = {
       hospitalName: Hospital_Name,
-      address: Address,
       city: City,
       state: State,
+      address: Address,
       zip: ZIP_Code,
       rating: Hospital_overall_rating,
       date,
       slot
     };
-
     let existing = JSON.parse(localStorage.getItem("bookings")) || [];
     existing.push(booking);
     localStorage.setItem("bookings", JSON.stringify(existing));
-    alert("Booking Confirmed!");
-    setShowBooking(false);
   };
 
   return (
     <div className="hospital-card">
-      <h3 onClick={() => setShowBooking(!showBooking)}>{Hospital_Name}</h3>
+      <h3>{Hospital_Name}</h3>
       <p>{Address}, {City}, {State} {ZIP_Code}</p>
       <p>Rating: {Hospital_overall_rating}</p>
+
+      <button onClick={() => setShowBooking(!showBooking)}>
+        Book FREE Center Visit
+      </button>
 
       {showBooking && (
         <div className="booking-section">
@@ -37,13 +38,11 @@ export default function HospitalCard({ hospital }) {
           <input type="date" value={date} onChange={(e) => setDate(e.target.value)} />
 
           <p>Today</p>
-          <div className="slots">
-            {["Morning", "Afternoon", "Evening"].map((s) => (
-              <button key={s} onClick={() => setSlot(s)}>{s}</button>
-            ))}
-          </div>
+          <p>Morning</p>
+          <p>Afternoon</p>
+          <p>Evening</p>
 
-          <button onClick={saveBooking}>Book FREE Center Visit</button>
+          <button onClick={saveBooking}>Confirm Booking</button>
         </div>
       )}
     </div>

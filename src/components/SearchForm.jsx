@@ -6,6 +6,8 @@ export default function SearchForm() {
   const [cities, setCities] = useState([]);
   const [selectedState, setSelectedState] = useState("");
   const [selectedCity, setSelectedCity] = useState("");
+  const [openState, setOpenState] = useState(false);
+  const [openCity, setOpenCity] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -24,31 +26,42 @@ export default function SearchForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate(`/search?state=${selectedState}&city=${selectedCity}`);
+    if (selectedState && selectedCity) {
+      navigate(`/search?state=${selectedState}&city=${selectedCity}`);
+    }
   };
 
   return (
     <form onSubmit={handleSubmit}>
-  <div id="state">
-    <select onChange={(e) => setSelectedState(e.target.value)} required>
-      <option value="">Select State</option>
-      {states.map((s, i) => (
-        <option key={i} value={s}>{s}</option>
-      ))}
-    </select>
-  </div>
+      {/* State Dropdown */}
+      <div id="state" onClick={() => setOpenState(!openState)}>
+        <span>{selectedState || "Select State"}</span>
+        {openState && (
+          <ul>
+            {states.map((s, i) => (
+              <li key={i} onClick={() => { setSelectedState(s); setOpenState(false); }}>
+                {s}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
-  <div id="city">
-    <select onChange={(e) => setSelectedCity(e.target.value)} required>
-      <option value="">Select City</option>
-      {cities.map((c, i) => (
-        <option key={i} value={c}>{c}</option>
-      ))}
-    </select>
-  </div>
+      {/* City Dropdown */}
+      <div id="city" onClick={() => setOpenCity(!openCity)}>
+        <span>{selectedCity || "Select City"}</span>
+        {openCity && (
+          <ul>
+            {cities.map((c, i) => (
+              <li key={i} onClick={() => { setSelectedCity(c); setOpenCity(false); }}>
+                {c}
+              </li>
+            ))}
+          </ul>
+        )}
+      </div>
 
-  <button id="searchBtn" type="submit">Search</button>
-</form>
-
+      <button id="searchBtn" type="submit">Search</button>
+    </form>
   );
 }
