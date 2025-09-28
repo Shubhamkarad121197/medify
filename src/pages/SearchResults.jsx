@@ -23,6 +23,7 @@ export default function SearchResults() {
 </h1>
 
 
+
       {centers.map((c, i) => (
         <HospitalCard key={i} hospital={c} />
       ))}
