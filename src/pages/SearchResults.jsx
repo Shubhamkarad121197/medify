@@ -18,9 +18,10 @@ export default function SearchResults() {
 
   return (
     <div>
-      <h1>
-  {centers.length} medical centers available in {city.toUpperCase()}
+     <h1>
+  {centers.length} medical centers available in {city.toLowerCase()}
 </h1>
+
 
 
 
