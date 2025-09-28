@@ -22,6 +22,7 @@ export default function SearchResults() {
   {centers.length} medical centers available in {city.toUpperCase()}
 </h1>
 
+
       {centers.map((c, i) => (
         <HospitalCard key={i} hospital={c} />
       ))}

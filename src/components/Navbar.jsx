@@ -8,7 +8,7 @@ export default function Navbar() {
       <ul>
         <li><Link to="/">Find Doctors</Link></li>
         <li><Link to="/search">Hospitals</Link></li>
-        <li><Link to="/src/pages/MyBookings.jsx">My Bookings</Link></li>
+        <li><Link to="/my-bookings">My Bookings</Link></li>
       </ul>
     </nav>
   );
