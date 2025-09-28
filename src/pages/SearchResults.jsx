@@ -18,7 +18,10 @@ export default function SearchResults() {
 
   return (
     <div>
-      <h1>{centers.length} medical centers available in {city}</h1>
+      <h1>
+  {centers.length} medical centers available in {city.toUpperCase()}
+</h1>
+
       {centers.map((c, i) => (
         <HospitalCard key={i} hospital={c} />
       ))}
